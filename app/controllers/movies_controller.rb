@@ -7,8 +7,8 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all
-  end
+    @movies = params[:sort] ? Movie.order(params[:sort]) : Movie.all
+    end
 
   def new
     # default: render 'new' template
